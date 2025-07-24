@@ -34,20 +34,27 @@ plot(SIMS~GRIP,data=Data)
 abline(newGRIP)
 summary.lm(newGRIP)
 ```
-```{r}
-predict(simp,target,interval=c("prediction"))
-```
-
 
 ```{r}
-newGRIP <- lm(SIMS~ARM,data=Data)
-plot(SIMS~GRIP,data=Data)
-abline(newGRIP)
-summary.lm(newGRIP)
+predict(newGRIP,target,interval=c("prediction"))
 ```
 
+```{r}
+halfGRIP <- lm(SIMS~ARM + GRIP,data=Data)
+plot(SIMS~ARM + GRIP,data=Data)
+abline(halfGRIP)
+summary.lm(halfGRIP)
+```
 
+```{r}
+predict(halfGRIP,target,interval=c("prediction"))
+```
+Now what were going to do is compare our 3 models using the ANOVA command first we are going to compare the model which is half Grip with the model simp
 
+```{r}
+anova(simp,halfGRIP)
+```
 
+what this is telling us, is the errors that occur from the model with just ARM in it added up to 217.88. The errors in the model with both the ARM and GRIP added up to 188.43 showing that there is less errors in the model with both elements rather than just ARM.
 
 
