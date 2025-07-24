@@ -57,4 +57,15 @@ anova(simp,halfGRIP)
 
 what this is telling us, is the errors that occur from the model with just ARM in it added up to 217.88. The errors in the model with both the ARM and GRIP added up to 188.43 showing that there is less errors in the model with both elements rather than just ARM.
 
+```{r}
+anova(newGRIP,halfGRIP)
+```
+what this shows is that, the sum of the errors for the model with just GRIP adds up to 243.07. The sum of errors for the model with both ARM and GRIP add up to 188.43, the difference is greater than before being 54.64.
+
+
+
+
+
+
+
 
